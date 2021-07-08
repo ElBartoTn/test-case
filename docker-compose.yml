@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  front:
+    build:
+      context: ./parfums-list
+    ports:
+      - 3000:3000
+    command: npm start
+    volumes:
+      - "./src:/srv/front/src"
+    image: elbartotn/flac-front
+  back:
+    build:
+      context: ./server
+    ports:
+      - 4000:4000
+    command: npm start
+    volumes:
+      - "./src:/srv/back/src"
+    image: elbartotn/flac-back
+
